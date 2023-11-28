@@ -20,8 +20,8 @@ services:
     container_name: customer-api
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      'DB_HOST ': customer-db
-      'DB_NAME ': customer
+      DB_HOST: customerdb
+      DB_NAME: customer
       DB_SA_PASSWORD: Pass@123
     image: customerwebapi
     networks:

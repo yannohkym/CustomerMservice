@@ -1,7 +1,7 @@
 version: '3.4'
 
 networks:
-  backend:
+ backend:
 
 services:
   customerdb:
@@ -21,11 +21,11 @@ services:
       context: .
       dockerfile: CustomerWebApi/Dockerfile
     networks:
-      - backend
+      - backend 
 
     ports:
       - 8002:80
     environment:
-     - DB_HOST =customer-db
+     - DB_HOST=customerdb
      - DB_SA_PASSWORD=Pass@123
-     - DB_NAME =customer
+     - DB_NAME=customer

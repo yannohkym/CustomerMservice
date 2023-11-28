@@ -29,8 +29,8 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
-      'DB_HOST ': customer-db
-      'DB_NAME ': customer
+      DB_HOST: customerdb
+      DB_NAME: customer
       DB_SA_PASSWORD: Pass@123
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
       NUGET_FALLBACK_PACKAGES: ""

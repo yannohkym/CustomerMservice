@@ -8,16 +8,14 @@ namespace CustomerWebApi
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
-			// Add services to the container.
+			// Add services to the container. database service injection.
 
-
-		
-			builder.Services.AddControllers();
+            builder.Services.AddControllers();
 			//database service  injection
 			//var dbHost = "YANNOH";
 			//var dbPassword = "Pass@123";
 			//var dbName = "dms_customer";
-			var dbHost = Environment.GetEnvironmentVariable(" DB_HOST");
+			var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
 			var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD");
 			var dbName = Environment.GetEnvironmentVariable("DB_NAME");
 			var connectionString= $"Data Source ={dbHost};Initial Catalog={dbName}; User ID =sa;Password=Pass@123;TrustServerCertificate=true;";
