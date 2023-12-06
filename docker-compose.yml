@@ -22,10 +22,32 @@ services:
       dockerfile: CustomerWebApi/Dockerfile
     networks:
       - backend 
-
     ports:
       - 8002:80
     environment:
      - DB_HOST=customerdb
      - DB_SA_PASSWORD=Pass@123
      - DB_NAME=customer
+  productdb:
+    container_name: product-db
+    image: mysql:8.0.29-oracle
+    ports:
+     - 8003:3306
+    environment:
+     - MYSQL_ROOT_PASSWORD=""
+    networks:
+     - backend
+  productwebapi:
+    container_name: product-api
+    image: ${DOCKER_REGISTRY-}productwebapi
+    build:
+      context: .
+      dockerfile: ProductWebApi/Dockerfile
+    networks:
+      - backend
+    ports:
+     - 8004:80
+    environment:
+      - DB_HOST=productdb
+      - DB_ROOT_PASSWORD=""
+      - DB_NAME=product
