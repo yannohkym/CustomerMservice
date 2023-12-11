@@ -37,7 +37,7 @@ services:
   productdb:
     container_name: product-db
     environment:
-      MYSQL_ROOT_PASSWORD: '""'
+      MYSQL_ROOT_PASSWORD: '"Pass@123"'
     image: mysql:8.0.29-oracle
     networks:
       backend: null
@@ -53,9 +53,9 @@ services:
     container_name: product-api
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      DB_HOST: productdb
+      DB_HOST: Productdb
       DB_NAME: product
-      DB_ROOT_PASSWORD: '""'
+      DB_ROOT_PASSWORD: '"Pass@123"'
     image: productwebapi
     networks:
       backend: null

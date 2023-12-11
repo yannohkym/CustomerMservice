@@ -36,7 +36,7 @@ services:
       NUGET_FALLBACK_PACKAGES: ""
     image: customerwebapi:dev
     labels:
-      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  ""'
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/x64/Debug/net6.0/CustomerWebApi.dll"'
       com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof dotnet); then kill $$PID; fi"
       com.microsoft.visualstudio.debuggee.program: dotnet
       com.microsoft.visualstudio.debuggee.workingdirectory: /app
@@ -88,7 +88,7 @@ services:
   productdb:
     container_name: product-db
     environment:
-      MYSQL_ROOT_PASSWORD: '""'
+      MYSQL_ROOT_PASSWORD: '"Pass@123"'
     image: mysql:8.0.29-oracle
     networks:
       backend: null
@@ -113,14 +113,14 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
-      DB_HOST: productdb
+      DB_HOST: Productdb
       DB_NAME: product
-      DB_ROOT_PASSWORD: '""'
+      DB_ROOT_PASSWORD: '"Pass@123"'
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
       NUGET_FALLBACK_PACKAGES: ""
     image: productwebapi:dev
     labels:
-      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  ""'
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net6.0/ProductWebApi.dll"'
       com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof dotnet); then kill $$PID; fi"
       com.microsoft.visualstudio.debuggee.program: dotnet
       com.microsoft.visualstudio.debuggee.workingdirectory: /app

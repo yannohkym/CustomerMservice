@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
 var dbPassword = Environment.GetEnvironmentVariable("DB_ROOT_PASSWORD");
 var dbName = Environment.GetEnvironmentVariable("DB_NAME");
-var connectionString = $"Data Source ={dbHost};Initial Catalog={dbName}; User ID =root;Password={dbPassword};";
+var connectionString = $"server={dbHost};database={dbName};user=root;Password={dbPassword};";
 builder.Services.AddDbContext<ProductDbContext>(o => o.UseMySQL(connectionString));
 
 
